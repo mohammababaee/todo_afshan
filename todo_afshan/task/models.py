@@ -9,4 +9,3 @@ class Task(models.Model):
     description = models.TextField(blank=True)
     creation_date = models.DateTimeField(default=datetime.now())
     todo_date = models.DateTimeField(blank=False,null=False)
-    

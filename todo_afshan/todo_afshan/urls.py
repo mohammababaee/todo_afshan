@@ -16,10 +16,10 @@ Including another URLconf
 from asyncio import Task
 from xml.etree.ElementInclude import include
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('api/v1/task', include('task.urls')),
+    path('api/v1/task/', include('task.urls')),
     #path('api/v1/user', include('user.urls'))
 ]

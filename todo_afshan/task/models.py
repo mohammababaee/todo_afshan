@@ -12,4 +12,6 @@ class Task(models.Model):
     creation_date = models.DateTimeField(default=datetime.now())
     todo_date = models.DateTimeField(blank=True, null=True)
     #writer = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    
+    compeleted = models.BooleanField(default=False)
+
+    objects = models.Manager

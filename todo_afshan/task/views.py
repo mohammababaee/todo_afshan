@@ -10,8 +10,6 @@ from task import serializers
 from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 
-permission_classes = (IsAuthenticated, )
-
 
 @api_view(['GET'])
 def taskList(resquest):
@@ -50,7 +48,8 @@ def taskDelete(request, pk):
 @api_view(['PUT'])
 def taskEdit(request, pk):
     task = Task.objects.get(id=pk)
-    serializer = TaskSerializer(instance=task,data=request.data,partial=False)
+    serializer = TaskSerializer(
+        instance=task, data=request.data, partial=False)
     if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
+        serializer.save()
+        return Response(serializer.data, status=201)
